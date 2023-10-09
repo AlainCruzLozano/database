@@ -1,4 +1,5 @@
-const express = requiere('express');
+const express = require('express');
+const usersRouter = require('./routes/users');
 
 class Server{
     constructor(){
@@ -7,8 +8,9 @@ class Server{
     
         //  http://localhost:3000/api/v1/users
 
-        this.basePath = '/api/v1'
-        this.usersPath = `${basePath}/users`;
+        this.basePath = '/api/v1';
+        this.usersPath = `${this.basePath}/users`;
+
         this.middlewares();
         this.routes();
     }
@@ -16,7 +18,7 @@ class Server{
         this.app.use(express.json());//para poder interpretar texto
     }
     routes(){
-        this.app.get(this.usersPath, FUNCTION);
+        this.app.get(this.usersPath, usersRouter);
     }
     listen(){
         this.app.listen(this.port, ()=>{

@@ -20,3 +20,5 @@ const config = {
         }
     })
     connection.end();*/
+
+    //npm install mysql2

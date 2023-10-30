@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const {usersList,listUserByID,addUser}=require('../controllers/users');
+const{usersList,listUserByID, addUser, modUser, deleteUser}=require('../controllers/users');
 
 
 const router = Router();
@@ -8,10 +8,8 @@ const router = Router();
 router.get('/', usersList);
 router.get('/:id', listUserByID)
 router.put('/', addUser);
-
-
+router.patch('/:id',modUser);
+router.delete('/',deleteUser);
 //router.post('/',usersList);
-//router.put('/',usersList);
-//router.patch('/',usersList);
-//router.delete('/',usersList);
+
 module.exports=router;
